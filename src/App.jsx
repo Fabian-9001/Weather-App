@@ -8,17 +8,17 @@ import "react-datepicker/dist/react-datepicker.css"
 
 
 
-
 function App() {
 
   const [coords, setCoords] = useState()
   const [weather, setWeather] = useState()
   const [temperature, setTemperature] = useState()
   const [startDate, setStartDate] = useState(new Date())
- 
+  const [location, setlocation] = useState()
 
 
-  useEffect(() => {
+
+  useEffect((location) => {
 
     /*-- FUNCION QUE SE EJECUTA CUANDO LLEGA LA INFORMACION DE NUESTRA UBICACION --*/
     const success = pos => {
@@ -30,7 +30,7 @@ function App() {
     }
     /*-- ESTO HACE EL LLAMADO A LA API DEL NAVEGADOR PARA USAR LA UBICACION ACTUAL --*/
     navigator.geolocation.getCurrentPosition(success)
-  }, [])
+  }, [location])
 
 
 
@@ -42,7 +42,7 @@ function App() {
     if (coords) {
 
       const APIKEY = 'c5ee6a5d3f66992411d82111501f47eb'
-      const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${APIKEY}`
+      const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&q=${location ||''}&appid=${APIKEY}`
 
       axios.get(URL)
         .then(res => {
@@ -58,14 +58,15 @@ function App() {
     }
   }, [coords])
 
-
+ 
 
   return (
     <div className="App">
       {
-        weather ? <WeatherCard weather={weather} temperature={temperature}  DataPicker={DataPicker} startDate={startDate} setStartDate={setStartDate}/> : <Loading />
+        weather ? <WeatherCard weather={weather} temperature={temperature} DataPicker={DataPicker} startDate={startDate} setStartDate={setStartDate} setlocation={setlocation} /> : <Loading />
       }
     </div>
+
   )
 
 }

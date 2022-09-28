@@ -28,25 +28,14 @@ export const WeatherCard = ({ weather, temperature, DataPicker, startDate, setSt
 
     /*-- FUNCION PARA RECARGAR PAGINA Y IMAGEN --*/
     const reload = () => {
-            window.location.reload(true);
+        window.location.reload(true);
     }
 
 
     return (
         <div>
             <section className='section__cart'>
-
-
                 <div className='container'>
-
-                    <form action="" onSubmit={search}>
-                        <input className='input__location' type="text" placeholder='Enter your location' />
-                        <div className='container__buttons'>
-                            <button className='button__search'>Search</button>
-                            <button className='button__IMG' onClick={reload} >Change IMG</button>
-                        </div>
-                    </form>
-
                     <div className='tilt-box-wrap'>
                         <span className='t_over'></span>
                         <span className='t_over'></span>
@@ -103,6 +92,13 @@ export const WeatherCard = ({ weather, temperature, DataPicker, startDate, setSt
 
 
                 <div className='container'>
+                    <form action="" onSubmit={search}>
+                        <input className='input__location' type="text" placeholder='Enter your location' />
+                        <div className='container__buttons'>
+                            <button className='button__search'>Search</button>
+                            <button className='button__IMG' onClick={reload} >Change IMG</button>
+                        </div>
+                    </form>
                     <div className='tilt-box-wrap'>
                         <span className='t_over'></span>
                         <span className='t_over'></span>

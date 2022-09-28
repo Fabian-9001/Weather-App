@@ -28,7 +28,10 @@ export const WeatherCard = ({ weather, temperature, DataPicker, startDate, setSt
 
     /*-- FUNCION PARA RECARGAR PAGINA Y IMAGEN --*/
     const reload = () => {
-        location.reload(true);
+        setTimeout(() => {
+            location.reload(true);
+        }, 1000)
+
     }
 
 

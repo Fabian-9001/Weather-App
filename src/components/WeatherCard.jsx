@@ -96,9 +96,9 @@ export const WeatherCard = ({ weather, temperature, DataPicker, startDate, setSt
                         <input className='input__location' type="text" placeholder='Enter your location' />
                         <div className='container__buttons'>
                             <button className='button__search'>Search</button>
+                            <button className='button__IMG' onClick={reload} >Change IMG</button>
                         </div>
                     </form>
-                    <button className='button__IMG' onClick={reload} >Change IMG</button>
                     <div className='tilt-box-wrap'>
                         <span className='t_over'></span>
                         <span className='t_over'></span>

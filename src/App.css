@@ -83,6 +83,7 @@ a {
 .container__buttons {
     display: flex;
     gap: 1px;
+    align-items: center;
 }
 
 .button__IMG {
@@ -97,6 +98,9 @@ a {
     font-family: cursive;
     backdrop-filter: blur(5px);
     cursor: pointer;
+    position: relative;
+    top: -57px;
+    right: -175px;
 }
 
 .button__search:hover {
@@ -755,7 +759,7 @@ input {
 
     .button__search {
         width: 50%;
-     
+
     }
 
     .button__IMG {
